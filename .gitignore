@@ -1,0 +1,5 @@
+/data/day_*/data.txt
+/data/day_*/part*_solution.txt
+.metals
+.vscode
+__pycache__
