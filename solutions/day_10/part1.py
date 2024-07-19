@@ -1,6 +1,9 @@
 # initial ideas, pathfind both directions at once checking neighbors
 # the pos class will help simplify the coordinate math and checks
 
+from typing import List
+
+
 class Pos:
     def __init__(self, i, j):
         self.i = i
@@ -35,7 +38,7 @@ class PipeLoop:
         "F": {Pos(1, 0), Pos(0, 1)},
         ".": set()
     }
-    def __init__(self, map_array: list[str], start: Pos):
+    def __init__(self, map_array: List[str], start: Pos):
         self.map_array = map_array
         self.start = start
         self.limiti = len(map_array)
@@ -125,7 +128,7 @@ class PipeLoop:
             next_dir = [d for d in self.pipes[self.show(next_piece)] if d + next_piece != last_piece][0]
             last_check = newly_added[-1]
 
-    def positions_to_check(self, last_check, last_pos, last_dir, next_pos, next_dir)->list[Pos]:
+    def positions_to_check(self, last_check, last_pos, last_dir, next_pos, next_dir) -> List[Pos]:
         # return new tiles to check or the last check if no new tiles to check because we always need a last checked to maintain continuity on the inside
         next_marker = self.show(next_pos)
         last_marker = self.show(last_pos)
